@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Enemy
   - Sides
+  - Player Bullet
   layers:
   - Default
   - TransparentFX
