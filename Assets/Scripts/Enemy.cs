@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class BulletScript : MonoBehaviour
+public class Enemy : MonoBehaviour
 {
     // Start is called before the first frame update
     void Start()
@@ -16,22 +16,12 @@ public class BulletScript : MonoBehaviour
         
     }
 
-    void OnCollisionEnter2D(Collision2D collision)
-    {
-        if (collision.collider.CompareTag("Sides"))  
-        {
-            Debug.Log(this);
-            Destroy(this);
-            //score++;
-           //onCoinPickup.Invoke();
-        }
-    }
-
     void OnTriggerEnter2D(Collider2D collider)
     {
-        if (collider.CompareTag("Enemy"))
+        if (collider.CompareTag("Player Bullet"))
         {
             Destroy(collider.gameObject);
+            Player.instance.shot = false;
             //score++;
             //onCoinPickup.Invoke();
         }

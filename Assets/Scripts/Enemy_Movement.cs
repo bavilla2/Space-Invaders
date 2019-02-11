@@ -50,6 +50,13 @@ public class Enemy_Movement : MonoBehaviour
                 movesRight = true;            
             }
         }
+
+        if (collider.CompareTag("Enemy"))    // CompareTag is more efficient than doing collider.tag == "Coin"
+        {
+            Destroy(collider.gameObject);
+            //score++;
+            //onCoinPickup.Invoke();
+        }
     }
 
     void OnTriggerStay2D(Collider2D collider)
