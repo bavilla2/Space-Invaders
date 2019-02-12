@@ -6,8 +6,10 @@ public class Enemy_Movement : MonoBehaviour
 {
     public float speed = 5f;
     public Transform enemies;
-    //public Collider2D enemies_collider;
-    public bool movesRight = true;
+    public Vector3 moveRight = new Vector3(0.25f, 0, 0);
+    public Vector3 moveLeft = new Vector3(-0.25f, 0, 0);
+    public Vector3 moveDown = new Vector3(0, -1.5f, 0);
+    public static bool movesRight = true;
     // Start is called before the first frame update
     void Start()
     {
@@ -19,11 +21,11 @@ public class Enemy_Movement : MonoBehaviour
     {
         if (movesRight)
         {
-            enemies.transform.Translate(Vector3.right * speed * Time.deltaTime);
+            enemies.transform.Translate(moveRight * speed * Time.deltaTime);
         }
         else
         {
-            enemies.transform.Translate(Vector3.left * speed * Time.deltaTime);
+            enemies.transform.Translate(moveLeft * speed * Time.deltaTime);
         }
     }
 
@@ -41,7 +43,7 @@ public class Enemy_Movement : MonoBehaviour
         if(collider.CompareTag("Sides"))
         {
             Debug.Log("Hello world");
-            enemies.transform.Translate(Vector3.down * speed);
+            enemies.transform.Translate(moveDown);
             if(movesRight)
             {
                 movesRight = false;
