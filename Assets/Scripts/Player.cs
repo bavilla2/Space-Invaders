@@ -6,7 +6,7 @@ public class Player : MonoBehaviour
 {
 
     [SerializeField] protected float speed = 20;
-    [SerializeField] protected float bulletSpeed = 7.5f;
+    [SerializeField] protected float bulletSpeed = 30.0f;
     public GameObject Bullet;
     private Collider2D m_collider;
     public bool shot = false;
@@ -17,7 +17,7 @@ public class Player : MonoBehaviour
     void Start()
     {
         instance = this;
-        m_collider = m_collider = this.GetComponent<Collider2D>();
+        m_collider = this.GetComponent<Collider2D>();
     }
 
     // Update is called once per frame
