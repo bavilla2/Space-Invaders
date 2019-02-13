@@ -1,9 +1,20 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
+
+public class IntUnityEvent: UnityEvent<int> { }
 
 public class BulletScript : MonoBehaviour
 {
+    public UnityEvent destroyedEnemy;
+    //public static Bullet instance;
+
+    void Awake()
+    {
+        //instance = this;
+    }
+
     // Start is called before the first frame update
     void Start()
     {
@@ -16,21 +27,28 @@ public class BulletScript : MonoBehaviour
         
     }
 
-    void OnCollisionEnter2D(Collision2D collision)
+    /*void OnCollisionEnter2D(Collision2D collision)
     {
         if (collision.collider.CompareTag("Sides"))  
         {
             Destroy(this);
         }
-    }
+    }*/
 
-    /*void OnTriggerEnter2D(Collider2D collider)
+    void OnTriggerEnter2D(Collider2D collider)
     {
         if (collider.CompareTag("Enemy"))
         {
-            Destroy(collider.gameObject);
+            destroyedEnemy.Invoke();
             //score++;
             //onCoinPickup.Invoke();
         }
-    }*/
+
+        if(collider.CompareTag("Sides"))
+        {
+            Debug.Log("I hit the top in bullet script");
+            Destroy(this.gameObject);
+            Player.instance.shot = false;
+        }
+    }
 }

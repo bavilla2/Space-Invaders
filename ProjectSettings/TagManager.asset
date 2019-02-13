@@ -8,6 +8,7 @@ TagManager:
   - Sides
   - Player Bullet
   - Enemy Bullet
+  - Level Manager
   layers:
   - Default
   - TransparentFX
