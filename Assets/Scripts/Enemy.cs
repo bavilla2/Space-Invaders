@@ -9,7 +9,7 @@ public class Enemy : MonoBehaviour
 {
     private Collider2D m_collider;
     private bool front = false;
-    private float raySize = 2.7f;
+    private float raySize = 10.8f;
     private float bulletSpeed = 60.0f;
     [SerializeField] protected GameObject Bullet;
 
