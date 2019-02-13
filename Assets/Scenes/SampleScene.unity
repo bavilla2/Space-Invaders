@@ -3596,7 +3596,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 5
   enemies: {fileID: 1423548678}
-  movesRight: 1
+  moveRight: {x: 0.25, y: 0, z: 0}
+  moveLeft: {x: -0.25, y: 0, z: 0}
+  moveDown: {x: 0, y: -1.5, z: 0}
 --- !u!50 &1423548681
 Rigidbody2D:
   serializedVersion: 4

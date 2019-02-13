@@ -25,7 +25,7 @@ public class Enemy : MonoBehaviour
     private void FixedUpdate()
     {
         checkFront();
-        if (front && (Random.value <= .005f))
+        if (front && (Random.value <= .001f))
         {
             shoot();
         }
