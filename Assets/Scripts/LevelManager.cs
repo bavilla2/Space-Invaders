@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
+using UnityEngine.SceneManagement;
 
 public class LevelManager : MonoBehaviour
 {
@@ -29,11 +30,29 @@ public class LevelManager : MonoBehaviour
         score += newScore;
         Debug.Log("Update score invoked");
         onScoreUpdate.Invoke(score);
+        if(score >= 1100)
+        {
+            winGame();
+        }
     }
 
     void changeLives(int newCount)
     {
         lives = newCount;
         onLiveUpdate.Invoke(lives);
+        if(lives <= 0)
+        {
+            loseGame();
+        }
+    }   
+
+    void loseGame()
+    {
+        SceneManager.LoadScene("GameOver");
+    }
+
+    void winGame()
+    {
+        SceneManager.LoadScene("WinGame");
     }
 }

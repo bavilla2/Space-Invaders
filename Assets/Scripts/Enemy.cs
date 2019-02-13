@@ -2,8 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
-
-//public class IntUnityEvent : UnityEvent<int> { }
+using UnityEngine.SceneManagement;
 
 public class Enemy : MonoBehaviour
 {
@@ -12,15 +11,6 @@ public class Enemy : MonoBehaviour
     private float raySize = 10.8f;
     private float bulletSpeed = 60.0f;
     [SerializeField] protected GameObject Bullet;
-
-    //public static Enemy instance;
-
-    //public UnityEvent destroyedEnemy;
-
-    /*void Awake()
-    {
-        instance = this;
-    }*/
 
     // Start is called before the first frame update
     void Start()
@@ -43,32 +33,19 @@ public class Enemy : MonoBehaviour
         }
     }
 
-    void OnTriggerEnter2D(Collider2D collider)
-    {
-       /* if (collider.CompareTag("Player Bullet"))
-        {
-            //destroyedEnemy.Invoke();
-            Debug.Log("Enemy in enemy script");
-            Destroy(collider.gameObject);
-            Destroy(this.gameObject);
-            Player.instance.shot = false;
-           // Player.instance.destroyedEnemy.Invoke();
-        }*/
-    }
-
-
-
     void checkFront()
     {
         Vector2 feetPosition = new Vector2(this.transform.position.x, m_collider.bounds.min.y-.1f);
         RaycastHit2D hitInfo = Physics2D.Raycast(feetPosition, Vector2.down, raySize);
         Debug.DrawRay(feetPosition, Vector2.down * raySize, Color.green);
-        if (!hitInfo)//&& !hitInfo.collider.CompareTag("Enemy"))// && !hitInfo.collider.CompareTag("GameController"))
+        if (!hitInfo)
         {
-            //Debug.Log(true);
             this.front = true;
         }
-        //Debug.Log(hitInfo.collider.tag);
+        if(hitInfo && hitInfo.collider.CompareTag("Sides"))
+        {
+            SceneManager.LoadScene("GameOver");
+        }
     }
 
     void shoot()

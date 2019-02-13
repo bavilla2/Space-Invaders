@@ -70,7 +70,6 @@ public class Player : MonoBehaviour
 
             Debug.Log("Enemy in enemy script");
             Destroy(collider.gameObject);
-            //Destroy(this.gameObject);
             playerHit.Invoke();
         }
     }
