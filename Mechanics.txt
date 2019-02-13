@@ -1,6 +1,8 @@
 Billy Villa
 Alejandro Trejo
 
+Group name: Alex Jones Conspiracies
+
 https://github.com/bavilla2/Space-Invaders
 
 To solve the player movement, we used the getHorizontalAxisRaw function to get player movement
