@@ -15,16 +15,4 @@ public class EnemyBullet : MonoBehaviour
     {
         
     }
-
-    void OnTriggerEnter2D(Collider2D collider)
-    {
-        if (collider.CompareTag("Player"))
-        {
-            Debug.Log("hit player");
-            Destroy(collider.gameObject);
-            Destroy(this.gameObject);
-            //Player.instance.shot = false;
-            //Debug.Log("Score: " + score);
-        }
-    }
 }

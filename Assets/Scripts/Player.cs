@@ -1,6 +1,9 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
+
+public class IntUnityEvent : UnityEvent<int> { }
 
 public class Player : MonoBehaviour
 {
@@ -10,11 +13,18 @@ public class Player : MonoBehaviour
     public GameObject Bullet;
     private Collider2D m_collider;
     public bool shot = false;
+
     public static Player instance;
+
+    public UnityEvent destroyedEnemy;
+
+    void Awake()
+    {
+        instance = this;
+    }
     // Start is called before the first frame update
     void Start()
     {
-        instance = this;
         m_collider = this.GetComponent<Collider2D>();
     }
 
@@ -50,17 +60,5 @@ public class Player : MonoBehaviour
         bullet.GetComponent<Rigidbody2D>().velocity = Vector2.up * bulletSpeed;
         Physics2D.IgnoreCollision(m_collider, bullet.GetComponent<Collider2D>());
         shot = true;
-    }
-
-    void OnTriggerEnter2D(Collider2D collider)
-    {
-        if (collider.CompareTag("Enemy Bullet"))
-        {
-            Debug.Log("hit player");
-            Destroy(collider.gameObject);
-            Destroy(this.gameObject);
-            //Player.instance.shot = false;
-            //Debug.Log("Score: " + score);
-        }
     }
 }

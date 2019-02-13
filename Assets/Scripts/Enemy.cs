@@ -3,24 +3,24 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
 
-public class IntUnityEvent : UnityEvent<int> { }
+//public class IntUnityEvent : UnityEvent<int> { }
 
 public class Enemy : MonoBehaviour
 {
     private Collider2D m_collider;
     private bool front = false;
-    private float raySize = 10.8f;
+    private float raySize = 2.7f;
     private float bulletSpeed = 60.0f;
     [SerializeField] protected GameObject Bullet;
 
-    public static Enemy instance;
+    //public static Enemy instance;
 
-    public UnityEvent destroyedEnemy;
+    //public UnityEvent destroyedEnemy;
 
-    private void Awake()
+    /*void Awake()
     {
         instance = this;
-    }
+    }*/
 
     // Start is called before the first frame update
     void Start()
@@ -47,12 +47,12 @@ public class Enemy : MonoBehaviour
     {
         if (collider.CompareTag("Player Bullet"))
         {
+            //destroyedEnemy.Invoke();
             Debug.Log("Enemy in enemy script");
             Destroy(collider.gameObject);
             Destroy(this.gameObject);
             Player.instance.shot = false;
-            destroyedEnemy.Invoke();
-            //Debug.Log("Score: " + score);
+            Player.instance.destroyedEnemy.Invoke();
         }
     }
 

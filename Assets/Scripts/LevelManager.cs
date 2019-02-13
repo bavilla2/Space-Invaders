@@ -17,13 +17,14 @@ public class LevelManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        Enemy.instance.destroyedEnemy.AddListener(() => UpdateScore(++score));
+        Player.instance.destroyedEnemy.AddListener(() => UpdateScore(++score));
     }
 
     // Update is called once per frame
     void UpdateScore(int newScore)
     {
         score = newScore;
+        Debug.Log("Update score invoked");
         onScoreUpdate.Invoke(newScore);
     }
 }
