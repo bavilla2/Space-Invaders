@@ -9,6 +9,10 @@ TagManager:
   - Player Bullet
   - Enemy Bullet
   - Level Manager
+  - Tier1 Enemy
+  - Tier2 Enemy
+  - Tier3 Enemy
+  - Lives
   layers:
   - Default
   - TransparentFX

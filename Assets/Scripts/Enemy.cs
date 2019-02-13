@@ -45,15 +45,15 @@ public class Enemy : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D collider)
     {
-        if (collider.CompareTag("Player Bullet"))
+       /* if (collider.CompareTag("Player Bullet"))
         {
             //destroyedEnemy.Invoke();
             Debug.Log("Enemy in enemy script");
             Destroy(collider.gameObject);
             Destroy(this.gameObject);
             Player.instance.shot = false;
-            Player.instance.destroyedEnemy.Invoke();
-        }
+           // Player.instance.destroyedEnemy.Invoke();
+        }*/
     }
 
 

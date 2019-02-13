@@ -49,5 +49,37 @@ public class BulletScript : MonoBehaviour
             Destroy(this.gameObject);
             Player.instance.shot = false;
         }
+
+        if (collider.CompareTag("Tier1 Enemy"))
+        {
+            //destroyedEnemy.Invoke();
+            Debug.Log("Enemy in enemy script");
+            Destroy(collider.gameObject);
+            Destroy(this.gameObject);
+            Player.instance.shot = false;
+            Player.instance.destroyedEnemy.Invoke(10);
+        }
+
+        if (collider.CompareTag("Tier2 Enemy"))
+        {
+            //destroyedEnemy.Invoke();
+            Debug.Log("Enemy in enemy script");
+            Destroy(collider.gameObject);
+            Destroy(this.gameObject);
+            Player.instance.shot = false;
+            Player.instance.destroyedEnemy.Invoke(20);
+        }
+
+        if (collider.CompareTag("Tier3 Enemy"))
+        {
+            //destroyedEnemy.Invoke();
+            Debug.Log("Enemy in enemy script");
+            Destroy(collider.gameObject);
+            Destroy(this.gameObject);
+            Player.instance.shot = false;
+            Player.instance.destroyedEnemy.Invoke(40);
+        }
+
+
     }
 }

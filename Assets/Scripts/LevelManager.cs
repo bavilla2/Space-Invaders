@@ -7,7 +7,9 @@ public class LevelManager : MonoBehaviour
 {
     public static LevelManager instance;
     public int score = 0;
+    public int lives = 3;
     public IntUnityEvent onScoreUpdate = new IntUnityEvent();
+    public IntUnityEvent onLiveUpdate = new IntUnityEvent();
 
     void Awake()
     {
@@ -17,14 +19,21 @@ public class LevelManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        Player.instance.destroyedEnemy.AddListener(() => UpdateScore(++score));
+        Player.instance.destroyedEnemy.AddListener(AddScore);
+        Player.instance.playerHit.AddListener(() => changeLives(--lives));
     }
 
     // Update is called once per frame
-    void UpdateScore(int newScore)
+    void AddScore(int newScore)
     {
-        score = newScore;
+        score += newScore;
         Debug.Log("Update score invoked");
-        onScoreUpdate.Invoke(newScore);
+        onScoreUpdate.Invoke(score);
+    }
+
+    void changeLives(int newCount)
+    {
+        lives = newCount;
+        onLiveUpdate.Invoke(lives);
     }
 }

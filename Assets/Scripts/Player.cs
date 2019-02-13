@@ -16,7 +16,8 @@ public class Player : MonoBehaviour
 
     public static Player instance;
 
-    public UnityEvent destroyedEnemy;
+    public IntUnityEvent destroyedEnemy = new IntUnityEvent();
+    public UnityEvent playerHit;
 
     void Awake()
     {
@@ -66,10 +67,11 @@ public class Player : MonoBehaviour
     {
         if (collider.CompareTag("Enemy Bullet"))
         {
-            //destroyedEnemy.Invoke();
+
             Debug.Log("Enemy in enemy script");
             Destroy(collider.gameObject);
-            Destroy(this.gameObject);
+            //Destroy(this.gameObject);
+            playerHit.Invoke();
         }
     }
 
