@@ -51,4 +51,16 @@ public class Player : MonoBehaviour
         Physics2D.IgnoreCollision(m_collider, bullet.GetComponent<Collider2D>());
         shot = true;
     }
+
+    void OnTriggerEnter2D(Collider2D collider)
+    {
+        if (collider.CompareTag("Enemy Bullet"))
+        {
+            Debug.Log("hit player");
+            Destroy(collider.gameObject);
+            Destroy(this.gameObject);
+            //Player.instance.shot = false;
+            //Debug.Log("Score: " + score);
+        }
+    }
 }
