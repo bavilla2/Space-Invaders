@@ -11,8 +11,6 @@ public class Player : MonoBehaviour
     private Collider2D m_collider;
     public bool shot = false;
     public static Player instance;
-
-
     // Start is called before the first frame update
     void Start()
     {
@@ -43,7 +41,6 @@ public class Player : MonoBehaviour
     {
         if (collision.collider.CompareTag("Sides"))
         {
-            Debug.Log("fuck");
         }
     }
 
@@ -53,6 +50,5 @@ public class Player : MonoBehaviour
         bullet.GetComponent<Rigidbody2D>().velocity = Vector2.up * bulletSpeed;
         Physics2D.IgnoreCollision(m_collider, bullet.GetComponent<Collider2D>());
         shot = true;
-
     }
 }

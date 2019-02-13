@@ -20,14 +20,11 @@ public class BulletScript : MonoBehaviour
     {
         if (collision.collider.CompareTag("Sides"))  
         {
-            Debug.Log(this);
             Destroy(this);
-            //score++;
-           //onCoinPickup.Invoke();
         }
     }
 
-    void OnTriggerEnter2D(Collider2D collider)
+    /*void OnTriggerEnter2D(Collider2D collider)
     {
         if (collider.CompareTag("Enemy"))
         {
@@ -35,5 +32,5 @@ public class BulletScript : MonoBehaviour
             //score++;
             //onCoinPickup.Invoke();
         }
-    }
+    }*/
 }

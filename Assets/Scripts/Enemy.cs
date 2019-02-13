@@ -8,12 +8,14 @@ public class Enemy : MonoBehaviour
     private bool front = false;
     private float raySize = 2.7f;
     private float bulletSpeed = 60.0f;
+    public int score; 
     [SerializeField] protected GameObject Bullet;
 
     // Start is called before the first frame update
     void Start()
     {
         m_collider = this.GetComponent<Collider2D>();
+        score = 0;
     }
 
     // Update is called once per frame
@@ -27,7 +29,7 @@ public class Enemy : MonoBehaviour
         checkFront();
         if (front && (Random.value <= .001f))
         {
-            shoot();
+            //shoot();
         }
     }
 
@@ -35,12 +37,15 @@ public class Enemy : MonoBehaviour
     {
         if (collider.CompareTag("Player Bullet"))
         {
+            Debug.Log("Enemy in enemy script");
             Destroy(collider.gameObject);
+            Destroy(this.gameObject);
             Player.instance.shot = false;
-            //score++;
-            //onCoinPickup.Invoke();
+            //Debug.Log("Score: " + score);
         }
     }
+
+
 
     void checkFront()
     {
