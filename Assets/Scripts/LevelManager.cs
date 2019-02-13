@@ -17,7 +17,7 @@ public class LevelManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        //Bullet.instance.destroyedEnemy.AddListener();
+        Enemy.instance.destroyedEnemy.AddListener(() => UpdateScore(++score));
     }
 
     // Update is called once per frame

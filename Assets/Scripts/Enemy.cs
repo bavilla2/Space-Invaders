@@ -1,6 +1,9 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
+
+public class IntUnityEvent : UnityEvent<int> { }
 
 public class Enemy : MonoBehaviour
 {
@@ -9,6 +12,15 @@ public class Enemy : MonoBehaviour
     private float raySize = 2.7f;
     private float bulletSpeed = 60.0f;
     [SerializeField] protected GameObject Bullet;
+
+    public static Enemy instance;
+
+    public UnityEvent destroyedEnemy;
+
+    private void Awake()
+    {
+        instance = this;
+    }
 
     // Start is called before the first frame update
     void Start()
@@ -39,6 +51,7 @@ public class Enemy : MonoBehaviour
             Destroy(collider.gameObject);
             Destroy(this.gameObject);
             Player.instance.shot = false;
+            destroyedEnemy.Invoke();
             //Debug.Log("Score: " + score);
         }
     }

@@ -1,19 +1,18 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.Events;
+//using UnityEngine.Events;
 
-public class IntUnityEvent: UnityEvent<int> { }
+//public class IntUnityEvent: UnityEvent<int> { }
 
 public class BulletScript : MonoBehaviour
 {
-    public UnityEvent destroyedEnemy;
     //public static Bullet instance;
 
-    void Awake()
+    /*void Awake()
     {
         //instance = this;
-    }
+    }*/
 
     // Start is called before the first frame update
     void Start()
@@ -37,12 +36,12 @@ public class BulletScript : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D collider)
     {
-        if (collider.CompareTag("Enemy"))
+        /*if (collider.CompareTag("Enemy"))
         {
             destroyedEnemy.Invoke();
             //score++;
             //onCoinPickup.Invoke();
-        }
+        }*/
 
         if(collider.CompareTag("Sides"))
         {
