@@ -13,6 +13,7 @@ TagManager:
   - Tier2 Enemy
   - Tier3 Enemy
   - Lives
+  - bottom
   layers:
   - Default
   - TransparentFX

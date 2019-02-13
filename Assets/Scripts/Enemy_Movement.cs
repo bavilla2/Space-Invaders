@@ -8,7 +8,7 @@ public class Enemy_Movement : MonoBehaviour
     public Transform enemies;
     public Vector3 moveRight = new Vector3(0.5f, 0, 0);
     public Vector3 moveLeft = new Vector3(-0.5f, 0, 0);
-    public Vector3 moveDown = new Vector3(0, -12f, 0);
+    public Vector3 moveDown = new Vector3(0, -24f, 0);
     public static bool movesRight = true;
     // Start is called before the first frame update
     void Start()

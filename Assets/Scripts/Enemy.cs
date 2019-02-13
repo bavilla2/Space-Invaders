@@ -8,7 +8,7 @@ public class Enemy : MonoBehaviour
 {
     private Collider2D m_collider;
     private bool front = false;
-    private float raySize = 10.8f;
+    private float raySize = 14.7f;
     private float bulletSpeed = 60.0f;
     [SerializeField] protected GameObject Bullet;
 
@@ -42,8 +42,10 @@ public class Enemy : MonoBehaviour
         {
             this.front = true;
         }
-        if(hitInfo && hitInfo.collider.CompareTag("Sides"))
+        if(hitInfo && hitInfo.collider.CompareTag("bottom"))
         {
+            Debug.Log(gameObject.name);
+            Debug.Log("Bottom reached");
             SceneManager.LoadScene("GameOver");
         }
     }
