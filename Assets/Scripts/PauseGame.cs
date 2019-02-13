@@ -8,16 +8,10 @@ public class PauseGame : MonoBehaviour
     public GameObject pausePanel;
     bool isPaused = false;
 
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
     // Update is called once per frame
     void Update()
     {
-        if(Input.GetKey(KeyCode.Escape))
+        if(Input.GetKeyDown(KeyCode.Escape))
         {
             Pause();
         }
@@ -38,8 +32,15 @@ public class PauseGame : MonoBehaviour
         }
     }
 
+    public void Resume()
+    {
+        Time.timeScale = 1;
+        pausePanel.SetActive(false); 
+    }
+
     public void LoadMainMenu()
     {
+        Time.timeScale = 1;
         SceneManager.LoadScene("MainMenu");
     }
 }
